@@ -13,7 +13,7 @@ const NoteInput = lazy(async () => {
 
   return {
     default: spacepack.findByCode(
-      /"aria-label":\i\.intl\.string\(\i\.t\.PbMNh4\)/,
+      /"aria-label":\i\.intl\.string\(\i\.t\.PbMNh2\)/,
     )[0].exports.Z as React.ComponentType<{
       userId: string;
       className: string;
