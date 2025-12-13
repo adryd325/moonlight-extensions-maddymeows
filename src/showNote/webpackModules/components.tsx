@@ -63,7 +63,12 @@ export function injectPopout(
     const element = jsxs(...args);
 
     element.props.children.push(
-      <Note user={element.props.children[0].props.user.id} />,
+      <Note
+        user={
+          element.props.children[0].props.userId ??
+          element.props.children[0].props.user.id
+        }
+      />,
     );
 
     return element;
@@ -80,7 +85,10 @@ export function injectSidebar(
       .at(-1)
       .props.children.push(
         <Note
-          user={element.props.children[0].props.user.id}
+          user={
+            element.props.children[0].props.userId ??
+            element.props.children[0].props.user.id
+          }
           className="moonlight-showNote-sidebar"
         />,
       );
