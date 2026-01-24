@@ -13,7 +13,7 @@ export const patches: ExtensionWebExports["patches"] = [
     ],
   },
   {
-    find: 'location:"ChannelCall"',
+    find: '"auto open screen width"',
     replace: [
       {
         match: /\i!==\i.\i.VOICE&&\i.isPrivate\(\)&&(!this\.inPopout&&\i)/,
@@ -49,13 +49,15 @@ export const patches: ExtensionWebExports["patches"] = [
     find: '"Missing channel in Channel.renderChat"',
     replace: [
       {
-        match: /if\((\i)\.isGuildVocal\(\)\)return null;/,
-        replacement: "if($1.isGuildVocal()&&!$1.isGuildVoice())return null;",
+        match:
+          /if\((\i)\.isGuildVocal\(\)\|\|(\i&&\i.isVocalThread\(\))\)return null;/,
+        replacement:
+          "if($1.isGuildVocal()&&!$1.isGuildVoice()||$2)return null;",
       },
     ],
   },
   {
-    find: 'location:"voice_channel"',
+    find: 'tutorialId:"voice-conversations"',
     replace: [
       {
         match: /"renderOpenChatButton",\(\)=>\{/,
