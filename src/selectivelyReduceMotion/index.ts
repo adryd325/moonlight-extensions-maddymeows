@@ -35,22 +35,6 @@ export const patches: ExtensionWebExports["patches"] = [
     },
   },
   {
-    find: '.dispatch({type:"POTIONS_TRIGGER_MESSAGE_CONFETTI"',
-    replace: {
-      match: /\i\.\i\.useReducedMotion/g,
-      replacement:
-        '$&||moonlight.getConfigOption("selectivelyReduceMotion","confetti")',
-    },
-  },
-  {
-    find: "Message must not be a thread starter message",
-    replace: {
-      match: /\[\i\.potioned]:/g,
-      replacement:
-        '"selectivelyReduceMotion-confetti":moonlight.getConfigOption("selectivelyReduceMotion","confetti"),$&',
-    },
-  },
-  {
     find: "isScrolledToTop:()=>",
     replace: {
       match: /(\i)\.to\(\{([^}]*)animate:([^}]*)}\)/,
