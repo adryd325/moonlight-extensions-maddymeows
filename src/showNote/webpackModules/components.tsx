@@ -14,14 +14,12 @@ const NoteInput = lazy(async () => {
   return {
     default: spacepack.findByCode(
       /"aria-label":\i\.intl\.string\(\i\.t\.PbMNh2\)/,
-    )[0].exports.Z as React.ComponentType<{
+    )[0].exports.A as React.ComponentType<{
       userId: string;
       className: string;
     }>,
   };
 });
-
-let profileNoteClassName = "";
 
 type NoteProps = {
   user: string;
@@ -31,12 +29,6 @@ type NoteProps = {
 export function Note(props: NoteProps) {
   let className = "moonlight-showNote";
   if (props.className) className += ` ${props.className}`;
-
-  if (!profileNoteClassName) {
-    profileNoteClassName = spacepack.findByCode(
-      "profileNote:" + '"profileNote_',
-    )[0].exports.profileNote;
-  }
 
   return (
     <Suspense>
@@ -49,7 +41,7 @@ export function Note(props: NoteProps) {
         </Heading>
         <NoteInput
           userId={props.user}
-          className={`${profileNoteClassName} moonlight-showNote-text`}
+          className="note_eb110a moonlight-showNote-text"
         />
       </section>
     </Suspense>
