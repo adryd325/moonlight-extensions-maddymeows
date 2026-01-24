@@ -19,7 +19,7 @@ import React from "@moonlight-mod/wp/react";
 import spacepack from "@moonlight-mod/wp/spacepack_spacepack";
 
 const GuildIcon = spacepack.findByCode(`SMOL:${JSON.stringify("Smol")},`)[0]
-  .exports.Z;
+  .exports.A;
 
 export type Guild = {
   id: string;
@@ -82,7 +82,7 @@ export function CloneExpressionModal(props: CloneExpressionModalProps) {
             >
               <Text
                 variant="heading-md/semibold"
-                style={{ color: "var(--header-primary)" }}
+                style={{ color: "var(--text-strong)" }}
               >
                 {guild.name}
               </Text>

@@ -5,7 +5,8 @@ export const patches: ExtensionWebExports["patches"] = [
   {
     find: ".EMOJI_UPSELL_POPOUT_MORE_EMOJIS_OPENED,",
     replace: {
-      match: /return(\(0,\i\.jsxs\)\("div",\{className:\i\.emojiSection,)/,
+      match:
+        /return(\(0,\i\.jsxs\)\("div",\{className:\i\.\i,children:\[\(0,\i\.jsxs\)\(\i\.\i,\{children:\[\(0,\i.jsx\)\(\i\.\i,\{className:\i\.\i,emojiId:)/,
       replacement: 'return require("cloneExpressions_emoji").injectPopout$1',
     },
   },
@@ -13,7 +14,8 @@ export const patches: ExtensionWebExports["patches"] = [
     find: "Custom Sticker Popout",
     replace: [
       {
-        match: /return(\(0,\i\.jsxs\)\("div",\{className:\i\.emojiSection,)/,
+        match:
+          /return(\(0,\i\.jsxs\)\("div",\{className\:\i\.\i,children:\[\(0,\i.jsx\)\(\i,\{description:\i,sticker:)/,
         replacement:
           'return require("cloneExpressions_sticker").injectPopout$1',
       },
