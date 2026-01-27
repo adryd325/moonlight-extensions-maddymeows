@@ -12,7 +12,7 @@ export const patches: ExtensionWebExports["patches"] = [
     ],
   },
   {
-    find: 'location:"UserProfileSidebarBody"',
+    find: '.t.a6XYD9),headingColor:"text-strong",children:(0,',
     replace: [
       {
         match: /return\(0,(\i\.jsxs)\)/,
