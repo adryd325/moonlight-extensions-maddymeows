@@ -15,9 +15,8 @@ export const patches: ExtensionWebExports["patches"] = [
     replace: [
       {
         match:
-          /return(\(0,\i\.jsxs\)\("div",\{className\:\i\.\i,children:\[\(0,\i.jsx\)\(\i,\{description:\i,sticker:)/,
-        replacement:
-          'return require("cloneExpressions_sticker").injectPopout$1',
+          /(\(0,\i\.jsxs\)\("div",\{className\:\i\.\i,children:\[\(0,\i.jsx\)\(\i,\{description:\i,sticker:)/,
+        replacement: 'require("cloneExpressions_sticker").injectPopout$1',
       },
     ],
   },
