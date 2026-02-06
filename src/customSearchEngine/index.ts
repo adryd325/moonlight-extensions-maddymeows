@@ -7,7 +7,7 @@ export const patches: ExtensionWebExports["patches"] = [
     replace: [
       {
         match:
-          /"https:\/\/www\.google\.com\/search\?q="\.concat\(encodeURIComponent\((\i)\)\)/,
+          /`https:\/\/www\.google\.com\/search\?q=\$\{encodeURIComponent\((\i)\)}`/,
         replacement:
           'moonlight.getConfigOption("customSearchEngine","url").replace("%s",encodeURIComponent($1))',
       },
