@@ -3,7 +3,7 @@ import { ExtensionWebExports } from "@moonlight-mod/types";
 // https://moonlight-mod.github.io/ext-dev/webpack/#patching
 export const patches: ExtensionWebExports["patches"] = [
   {
-    find: '"displayName","ChannelRTCStore"',
+    find: 'static displayName="ChannelRTCStore"',
     replace: [
       {
         match: /(\i)(\?\i\.\i\.NO_CHAT:\i\.\i\.NORMAL)/,
@@ -27,7 +27,7 @@ export const patches: ExtensionWebExports["patches"] = [
     ],
   },
   {
-    find: 'location:"ChannelChat"',
+    find: '"ChannelChat"',
     replace: [
       {
         match: /\.memo\(function\((\i)\)\{/,
@@ -39,9 +39,9 @@ export const patches: ExtensionWebExports["patches"] = [
         replacement: "$&_moonlight_dmCallLayout_shouldRenderChat,",
       },
       {
-        match: /let[^;]+?isChatInputBottomAligned[^;]+?;/,
+        match: /render\(\)\{(let \i,\{channel:[^}]+})/,
         replacement:
-          "$&if(!this.props._moonlight_dmCallLayout_shouldRenderChat)return null;",
+          "render(){if(!this.props._moonlight_dmCallLayout_shouldRenderChat)return null;$1",
       },
     ],
   },
@@ -60,7 +60,7 @@ export const patches: ExtensionWebExports["patches"] = [
     find: 'tutorialId:"voice-conversations"',
     replace: [
       {
-        match: /"renderOpenChatButton",\(\)=>\{/,
+        match: /renderOpenChatButton=\(\)=>\{/,
         replacement: "$&return null;",
       },
     ],
