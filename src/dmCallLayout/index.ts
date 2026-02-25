@@ -35,13 +35,13 @@ export const patches: ExtensionWebExports["patches"] = [
           '$&let _moonlight_dmCallLayout_shouldRenderChat=require("discord/packages/flux").useStateFromStores([require("common_stores").ChannelRTCStore],()=>require("common_stores").ChannelRTCStore.getLayout($1.channel.id)==="normal"||$1.chatInputType.analyticsName!=="normal");',
       },
       {
-        match: /return\(0,\i\.jsx\)\(\i,\{/,
+        match: /\(0,\i\.jsx\)\(\i,\{channel:\i,/,
         replacement: "$&_moonlight_dmCallLayout_shouldRenderChat,",
       },
       {
         match: /render\(\)\{(let \i,\{channel:[^}]+})/,
         replacement:
-          "render(){if(!this.props._moonlight_dmCallLayout_shouldRenderChat)return null;$1",
+          "render(){if(this.props._moonlight_dmCallLayout_shouldRenderChat===false)return null;$1",
       },
     ],
   },
